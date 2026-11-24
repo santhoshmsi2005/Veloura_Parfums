@@ -1,0 +1,299 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Veloura Parfums design system.
+ * Ivory / cream grounds, burgundy & wine sections, blush rose, champagne gold accents.
+ */
+
+@theme inline {
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Brand palette */
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
+  --color-burgundy: var(--burgundy);
+  --color-wine: var(--wine);
+  --color-champagne: var(--champagne);
+  --color-champagne-soft: var(--champagne-soft);
+  --color-cocoa: var(--cocoa);
+  --color-taupe: var(--taupe);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-line-dark: var(--line-dark);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, var(--cocoa) 35%, transparent);
+  --shadow-lift: 0 26px 50px -28px color-mix(in oklab, var(--burgundy) 45%, transparent);
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --radius: 0.125rem;
+
+  --ivory: oklch(0.966 0.01 72.7); /* #F8F3ED */
+  --cream: oklch(0.93 0.02 70); /* #F1E6DA */
+  --blush: oklch(0.925 0.025 35); /* soft blush card */
+  --rose: oklch(0.8 0.045 35.6); /* #D9B4AA */
+  --burgundy: oklch(0.312 0.108 13.5); /* #5B0E20 */
+  --wine: oklch(0.223 0.072 9.4); /* #350814 */
+  --champagne: oklch(0.738 0.087 78.7); /* #C8A46A */
+  --champagne-soft: oklch(0.83 0.06 80);
+  --cocoa: oklch(0.282 0.027 41.5); /* #35251F */
+  --taupe: oklch(0.579 0.032 51.5); /* #8A7569 */
+  --on-dark: oklch(0.955 0.015 72);
+  --on-dark-muted: oklch(0.82 0.03 40);
+  --line-dark: oklch(0.738 0.087 78.7 / 30%);
+
+  --background: var(--ivory);
+  --foreground: var(--cocoa);
+  --card: oklch(0.985 0.006 72);
+  --card-foreground: var(--cocoa);
+  --popover: var(--ivory);
+  --popover-foreground: var(--cocoa);
+  --primary: var(--burgundy);
+  --primary-foreground: var(--on-dark);
+  --secondary: var(--cream);
+  --secondary-foreground: var(--cocoa);
+  --muted: var(--cream);
+  --muted-foreground: var(--taupe);
+  --accent: var(--champagne);
+  --accent-foreground: var(--wine);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: var(--on-dark);
+  --border: oklch(0.87 0.025 65);
+  --input: oklch(0.85 0.03 65);
+  --ring: var(--champagne);
+
+  --chart-1: var(--burgundy);
+  --chart-2: var(--champagne);
+  --chart-3: var(--rose);
+  --chart-4: var(--taupe);
+  --chart-5: var(--wine);
+  --sidebar: var(--ivory);
+  --sidebar-foreground: var(--cocoa);
+  --sidebar-primary: var(--burgundy);
+  --sidebar-primary-foreground: var(--on-dark);
+  --sidebar-accent: var(--cream);
+  --sidebar-accent-foreground: var(--cocoa);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--champagne);
+
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.14 0 0 0 0 0.1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Lenis smooth scroll integration */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--rose);
+    color: var(--wine);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Tiny letter-spaced uppercase label */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Section heading — serif caps with tracking */
+@utility section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cocoa);
+}
+
+/* Subtle film grain overlay */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: var(--grain);
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+}
+
+@utility grain-light {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: var(--grain);
+    opacity: 0.14;
+    mix-blend-mode: soft-light;
+    z-index: 1;
+  }
+}
+
+/* Animated underline for nav links */
+@utility link-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 1px;
+    background: var(--champagne);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 400ms var(--ease-luxe);
+  }
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility bg-hero-fade {
+  background: linear-gradient(
+    90deg,
+    var(--ivory) 0%,
+    color-mix(in oklab, var(--ivory) 88%, transparent) 30%,
+    color-mix(in oklab, var(--ivory) 30%, transparent) 50%,
+    transparent 64%
+  );
+}
+
+@utility bg-hero-fade-mobile {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 50%,
+    color-mix(in oklab, var(--ivory) 70%, transparent) 78%,
+    var(--ivory) 96%
+  );
+}
+
+@utility bg-wine-velvet {
+  background:
+    radial-gradient(
+      120% 140% at 15% 0%,
+      color-mix(in oklab, var(--burgundy) 100%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      90% 120% at 100% 100%,
+      color-mix(in oklab, var(--burgundy) 70%, var(--wine)) 0%,
+      transparent 70%
+    ),
+    var(--wine);
+}
